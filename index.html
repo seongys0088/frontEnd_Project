@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>영어 문장 완성하기 게임</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./jquery-3.7.1.js"></script>
+    <script src="./script.js"></script>
+</head>
+<body>
+    <div id="game-container">
+        <section id="start-screen">
+            <h1>Engligh Word Game</h1>
+            <div class="version-tag">ARCADE EDITION V1.0</div>
+            <div class="input-group">
+                <label class="input-label">PLAYER TAG & PASSWORD</label>
+                <input type="text" id="user-name" placeholder="NAME...">
+                <input type="password" id="user-pw" placeholder="PASSWORD...">
+                <button id="start-btn">PRESS START</button>
+            </div>
+            <p class="footer-text">- INSERT COIN TO CONTINUE -</p>
+        </section>
+
+        <section id="game-screen" class="hidden">
+            <header class="info-bar">
+                <div class="left-info">
+                    <h2>SENTENCE MASTER</h2>
+                    <p>PLAYER: <span id="display-user-name">----</span></p>
+                </div>
+                <div class="score-display">
+                    TOTAL SCORE
+                    <span id="current-score">0</span>
+                </div>
+            </header>
+
+            <article id="quiz-area">
+                <div class="quiz-header">
+                    <span class="category-tag" id="current-category">TRANSLATE TO ENGLISH</span>
+                    <span class="quest-number" id="game-progress">QUEST 1</span>
+                </div>
+                <div id="kor-sentence">"한글 문장이 표시됩니다."</div>
+            </article>
+
+            <div id="drop-zone" class="card-container"></div>
+            <div id="word-pool" class="card-container"></div>
+
+            <footer class="controls">
+                <div id="combo-text" class="combo-text hidden">COMBO STREAK X0</div>
+                <button id="check-btn">CHECK ANSWER</button>
+                <div id="timer" class="timer-display">TIME LEFT: 00s</div>
+            </footer>
+        </section>
+
+        <section id="result-screen" class="hidden">
+            <h2>MISSION COMPLETE</h2>
+            <div id="final-stats">
+                <p>PLAYER: <span id="final-user"></span></p>
+                <p>FINAL SCORE: <span id="final-score"></span></p>
+                <p>BEST SCORE: <span id="best-score-display">0</span></p>
+            </div>
+            <div id="history-area">
+                <h3>LATEST MISSION LOGS</h3>
+                <ul id="history-list"></ul>
+            </div>
+            <button onclick="location.reload()">REPLAY</button>
+        </section>
+    </div>
+</body>
+</html>

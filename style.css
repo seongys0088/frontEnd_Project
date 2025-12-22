@@ -1,0 +1,380 @@
+/* 1. 아케이드 에디션 컬러 변수 및 초기화 */
+:root {
+    --bg-dark: #05070a;        /* 배경: 딥 블랙 */
+    --panel-dark: #0f172a;     /* 패널: 다크 네이비 */
+    --neon-pink: #ff2e63;      /* 포인트: 네온 핑크 (PRESS START 버튼) */
+    --neon-blue: #08d9d6;      /* 포인트: 시안 블루 (테두리 및 강조) */
+    --neon-purple: #a855f7;    /* 포인트: 퍼플 (제목 및 하이라이트) */
+    --neon-yellow: #f7c74f;    /* 포인트: 골드 (점수) */
+    --text-main: #ffffff;      /* 메인 텍스트: 화이트 */
+    --card-white: #ffffff;     /* 카드: 순백색 */
+    --card-text: #0f172a;      /* 카드 텍스트: 다크 네이비 */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* 배경 도트 패턴 효과 */
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 0);
+    background-size: 30px 30px;
+    color: var(--text-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#game-container {
+    width: 95%;
+    max-width: 900px;
+    padding: 20px;
+    position: relative;
+}
+
+.hidden { display: none !important; }
+
+/* 2. 시작 화면 (ARCADE EDITION V1.0 느낌) */
+#start-screen {
+    background: var(--panel-dark);
+    padding: 60px 40px;
+    border-radius: 40px;
+    border: 2px solid var(--neon-blue);
+    box-shadow: 0 0 30px rgba(8, 217, 214, 0.2);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#start-screen h1 {
+    font-size: 3rem;
+    font-style: italic;
+    font-weight: 900;
+    color: var(--text-main);
+    text-shadow: 0 0 15px var(--neon-purple);
+    margin-bottom: 5px;
+}
+
+#start-screen .version-tag {
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#user-name {
+    width: 100%;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #334155;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#start-btn {
+    width: 100%;
+    padding: 20px;
+    background: var(--neon-pink);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 0px #b91d47;
+    transition: all 0.1s;
+    margin-bottom: 25px;
+}
+
+#start-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 4px 0px #b91d47;
+}
+
+/* 3. 게임 메인 화면 (SENTENCE MASTER) */
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.info-bar h2 {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.info-bar p {
+    font-size: 2rem;
+    font-style: italic;
+    color: var(--neon-purple);
+    text-shadow: 0 0 10px var(--neon-purple);
+}
+
+.score-display {
+    text-align: right;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+#current-score {
+    display: block;
+    font-size: 2.5rem;
+    color: #fbbf24; /* 점수는 골드 컬러 */
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--neon-yellow);
+}
+
+/* 문제 카드 영역 */
+#quiz-area {
+    background: var(--panel-dark);
+    padding: 40px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+#quiz-area .category-tag {
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+#kor-sentence {
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.4;
+    word-break: keep-all;
+}
+
+/* 4. 단어 카드 및 드래그 영역 (필수 사항 반영) */
+.card-container {
+    min-height: 120px;
+    padding: 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    align-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+#drop-zone {
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px dashed #334155;
+}
+
+#word-pool {
+    background: transparent;
+    border: 2px solid transparent;
+}
+
+/* 단어 카드 디자인 */
+.word-card {
+    background: var(--card-white);
+    color: var(--card-text);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: grab;
+    user-select: none;
+    box-shadow: 0 4px 0px #cbd5e1;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.word-card:active {
+    cursor: grabbing;
+}
+
+.word-card.dragging {
+    opacity: 0.3;
+    transform: scale(0.9);
+}
+
+/* 5. 정답 확인 및 콤보 텍스트 */
+.controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#check-btn {
+    background: transparent;
+    color: #94a3b8;
+    border: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.combo-text {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--neon-blue);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+/* 콤보 애니메이션 효과 */
+.combo-text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: var(--neon-blue);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 900;
+    text-shadow: 0 0 10px var(--neon-blue);
+    animation: pulse 0.5s infinite alternate; /* 반짝이는 효과 */
+}
+
+@keyframes pulse {
+    from { transform: scale(1); opacity: 0.8; }
+    to { transform: scale(1.1); opacity: 1; }
+}
+
+/* 문제 상단 태그 스타일 */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-family: 'Arial Black', sans-serif;
+}
+
+.quest-number {
+    color: rgba(255, 255, 255, 0.2);
+    font-style: italic;
+    font-size: 1.5rem;
+}
+
+/* 입력창 간격 조정 */
+#user-pw {
+    width: 100%;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid #334155;
+    border-radius: 15px;
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* 기록 영역 디자인 */
+#history-area {
+    margin-top: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(8, 217, 214, 0.1);
+}
+
+#history-area h3 {
+    font-size: 0.9rem;
+    color: var(--neon-blue);
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+#history-list {
+    list-style: none;
+    text-align: left;
+}
+
+#history-list li {
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+}
+
+#history-list li span {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+#best-score-display {
+    color: #fbbf24;
+    font-weight: 900;
+}
+
+/* 결과 화면 스타일 */
+#result-screen {
+    background: var(--panel-dark);
+    padding: 50px 40px;
+    border-radius: 40px;
+    border: 2px solid var(--neon-purple);
+    box-shadow: 0 0 30px rgba(168, 85, 247, 0.2);
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#result-screen h2 {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--neon-pink);
+    text-shadow: 0 0 15px var(--neon-pink);
+    margin-bottom: 30px;
+}
+
+#history-area {
+    margin-top: 30px;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+#history-list {
+    list-style: none;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+#history-list li {
+    font-size: 0.85rem;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+}
+
+#history-list li span { color: var(--neon-blue); font-weight: bold; }
+
+/* REPLAY 버튼 스타일 */
+#result-screen button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 18px;
+    background: transparent;
+    color: var(--neon-blue);
+    border: 2px solid var(--neon-blue);
+    border-radius: 15px;
+    font-weight: 800;
+    cursor: pointer;
+}
