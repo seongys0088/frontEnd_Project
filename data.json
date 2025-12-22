@@ -1,0 +1,85 @@
+{
+  "gameTitle": "영어 문장 완성하기 게임",
+  "quizData": [
+    {
+      "id": 1,
+      "kor": "그래서 프로그램이 우리가 그렇게 해야만 하는 바로 그 방법이라고 생각합니다.",
+      "eng": "So programming is the way I think we should be doing that.",
+      "category": "Technology",
+      "score": 20,
+      "limitTime": 60
+    },
+    {
+      "id": 2,
+      "kor": "나의 취미는 영화를 보는 것이다.",
+      "eng": "My hobby is watching movies.",
+      "category": "Daily Life",
+      "score": 10,
+      "limitTime": 30
+    },
+    {
+      "id": 3,
+      "kor": "성공은 최종적인 것이 아니며, 실패는 치명적인 것이 아니다.",
+      "eng": "Success is not final, failure is not fatal.",
+      "category": "Motivation",
+      "score": 15,
+      "limitTime": 45
+    },
+    {
+      "id": 4,
+      "kor": "그녀는 매일 아침 공원에서 조깅을 한다.",
+      "eng": "She goes jogging in the park every morning.",
+      "category": "Health",
+      "score": 10,
+      "limitTime": 35
+    },
+    {
+      "id": 5,
+      "kor": "나는 어제 친구들과 함께 점심을 먹었다.",
+      "eng": "I had lunch with my friends yesterday.",
+      "category": "Daily Life",
+      "score": 10,
+      "limitTime": 30
+    },
+    {
+      "id": 6,
+      "kor": "가장 좋은 해결책은 문제를 단순하게 만드는 것이다.",
+      "eng": "The best solution is to make the problem simple.",
+      "category": "Wisdom",
+      "score": 15,
+      "limitTime": 40
+    },
+    {
+      "id": 7,
+      "kor": "우리는 환경을 보호하기 위해 최선을 다해야 한다.",
+      "eng": "We must do our best to protect the environment.",
+      "category": "Environment",
+      "score": 20,
+      "limitTime": 50
+    },
+    {
+      "id": 8,
+      "kor": "그 영화는 내가 지금까지 본 것 중 가장 감동적이었다.",
+      "eng": "The movie was the most touching I have ever seen.",
+      "category": "Culture",
+      "score": 20,
+      "limitTime": 55
+    },
+    {
+      "id": 9,
+      "kor": "정직은 최선의 방책이다.",
+      "eng": "Honesty is the best policy.",
+      "category": "Proverb",
+      "score": 5,
+      "limitTime": 20
+    },
+    {
+      "id": 10,
+      "kor": "당신이 할 수 있다고 믿으면 당신은 이미 절반은 온 것이다.",
+      "eng": "Believe you can and you are halfway there.",
+      "category": "Motivation",
+      "score": 20,
+      "limitTime": 60
+    }
+  ]
+}
