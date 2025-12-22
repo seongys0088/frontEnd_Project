@@ -1,4 +1,4 @@
-# 🎮 SENTENCE MASTER - ARCADE EDITION
+# 🎮 English Word Game - Sentence Master
 
 무작위로 섞인 영어 단어 카드를 드래그 앤 드롭하여 한글 문장에 맞는 올바른 순서로 재배치하는 영어 문장 완성 게임입니다.
 
